@@ -1,24 +1,71 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Header } from "@/components/site/header";
+import { FloatingActions } from "@/components/site/floating";
+import {
+  Hero,
+  Services,
+  WhyUs,
+  Applications,
+  Projects,
+  Process,
+  FinalCta,
+  Contact,
+  Footer,
+} from "@/components/site/sections";
+import { useReveal } from "@/hooks/use-reveal";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+const TITLE = "ساندويتش بانل — توريد وتركيب في السعودية | ثِقل بانل";
+const DESC =
+  "توريد وتركيب ألواح الساندويتش بانل للمستودعات والمصانع والهناجر وغرف التبريد داخل المملكة. اطلب عرض سعر اليوم.";
+
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: TITLE },
+      { name: "description", content: DESC },
+      { property: "og:title", content: TITLE },
+      { property: "og:description", content: DESC },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
+  useReveal();
+
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div dir="rtl">
+      <Header />
+      <main>
+        <div data-reveal>
+          <Hero />
+        </div>
+        <div data-reveal>
+          <Services />
+        </div>
+        <div data-reveal>
+          <WhyUs />
+        </div>
+        <div data-reveal>
+          <Applications />
+        </div>
+        <div data-reveal>
+          <Projects />
+        </div>
+        <div data-reveal>
+          <Process />
+        </div>
+        <div data-reveal>
+          <FinalCta />
+        </div>
+        <div data-reveal>
+          <Contact />
+        </div>
+      </main>
+      <Footer />
+      <FloatingActions />
     </div>
   );
 }
