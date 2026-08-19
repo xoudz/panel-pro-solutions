@@ -52,7 +52,7 @@ export function Hero() {
           height={1280}
           className="h-[68vh] min-h-[440px] w-full object-cover sm:h-[78vh]"
         />
-        <div className="absolute inset-0 bg-graphite/70" />
+        <div className="image-overlay absolute inset-0" />
         <div className="absolute inset-0 flex items-center">
           <div className="mx-auto w-full max-w-7xl px-5 lg:px-8">
             <div className="max-w-3xl text-graphite-foreground">
@@ -83,8 +83,9 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="border-b border-border bg-card">
+      <div className="metal-line bg-surface-1">
         <div className="mx-auto grid max-w-7xl grid-cols-2 divide-x divide-x-reverse divide-border lg:grid-cols-4">
+
           {["توريد وتركيب", "تنفيذ احترافي", "حلول عزل", "داخل المملكة"].map((item) => (
             <div key={item} className="px-5 py-5 text-center lg:px-8">
               <span className="text-sm font-semibold sm:text-base">{item}</span>
@@ -129,19 +130,22 @@ export function Services() {
         {SERVICES.map((s, i) => (
           <article
             key={s.title}
-            className="reveal group border border-border bg-card transition-shadow duration-300 hover:shadow-lift"
+            className="reveal metal-card group"
             style={{ transitionDelay: `${i * 60}ms` }}
           >
-            <div className="overflow-hidden">
+
+            <div className="relative overflow-hidden">
               <img
                 src={s.img}
                 alt={s.title}
                 loading="lazy"
                 width={1200}
                 height={900}
-                className="h-56 w-full object-cover transition-transform duration-700 group-hover:scale-[1.04] sm:h-64"
+                className="h-56 w-full object-cover brightness-[0.82] saturate-[0.85] transition-all duration-700 group-hover:scale-[1.04] group-hover:brightness-100 group-hover:saturate-100 sm:h-64"
               />
+              <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-graphite/70 to-transparent" />
             </div>
+
             <div className="p-6 lg:p-7">
               <h3 className="text-xl font-bold">{s.title}</h3>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
