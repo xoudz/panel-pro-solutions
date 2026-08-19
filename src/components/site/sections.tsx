@@ -52,7 +52,7 @@ export function Hero() {
           height={1280}
           className="h-[68vh] min-h-[440px] w-full object-cover sm:h-[78vh]"
         />
-        <div className="absolute inset-0 bg-graphite/70" />
+        <div className="image-overlay absolute inset-0" />
         <div className="absolute inset-0 flex items-center">
           <div className="mx-auto w-full max-w-7xl px-5 lg:px-8">
             <div className="max-w-3xl text-graphite-foreground">
@@ -83,8 +83,9 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="border-b border-border bg-card">
+      <div className="metal-line bg-surface-1">
         <div className="mx-auto grid max-w-7xl grid-cols-2 divide-x divide-x-reverse divide-border lg:grid-cols-4">
+
           {["توريد وتركيب", "تنفيذ احترافي", "حلول عزل", "داخل المملكة"].map((item) => (
             <div key={item} className="px-5 py-5 text-center lg:px-8">
               <span className="text-sm font-semibold sm:text-base">{item}</span>
@@ -129,19 +130,22 @@ export function Services() {
         {SERVICES.map((s, i) => (
           <article
             key={s.title}
-            className="reveal group border border-border bg-card transition-shadow duration-300 hover:shadow-lift"
+            className="reveal metal-card group"
             style={{ transitionDelay: `${i * 60}ms` }}
           >
-            <div className="overflow-hidden">
+
+            <div className="relative overflow-hidden">
               <img
                 src={s.img}
                 alt={s.title}
                 loading="lazy"
                 width={1200}
                 height={900}
-                className="h-56 w-full object-cover transition-transform duration-700 group-hover:scale-[1.04] sm:h-64"
+                className="h-56 w-full object-cover brightness-[0.82] saturate-[0.85] transition-all duration-700 group-hover:scale-[1.04] group-hover:brightness-100 group-hover:saturate-100 sm:h-64"
               />
+              <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-graphite/70 to-transparent" />
             </div>
+
             <div className="p-6 lg:p-7">
               <h3 className="text-xl font-bold">{s.title}</h3>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
@@ -171,16 +175,17 @@ const WHY = [
 
 export function WhyUs() {
   return (
-    <section id="about" className="border-y border-border bg-secondary">
+    <section id="about" className="border-y border-border bg-graphite">
       <div className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
         <SectionHead eyebrow="لماذا نحن" title="من التوريد إلى التسليم، جهة واحدة." />
         <div className="mt-12 grid grid-cols-2 gap-px bg-border lg:grid-cols-4">
           {WHY.map((w, i) => (
             <div
               key={w.n}
-              className="reveal bg-secondary p-6 lg:p-8"
+              className="reveal bg-graphite p-6 transition-colors duration-300 hover:bg-surface-1 lg:p-8"
               style={{ transitionDelay: `${i * 70}ms` }}
             >
+
               <span className="text-sm font-semibold text-primary">{w.n}</span>
               <h3 className="mt-4 text-lg font-bold sm:text-xl">{w.t}</h3>
               <p className="mt-1.5 text-sm text-muted-foreground">{w.v}</p>
@@ -212,7 +217,7 @@ export function Applications() {
           <a
             key={a.t}
             href="#contact"
-            className="reveal group relative block overflow-hidden"
+            className="reveal group relative block overflow-hidden border border-border transition-colors duration-300 hover:border-primary/45"
             style={{ transitionDelay: `${(i % 3) * 70}ms` }}
           >
             <img
@@ -221,12 +226,14 @@ export function Applications() {
               loading="lazy"
               width={1000}
               height={1200}
-              className="h-72 w-full object-cover transition-transform duration-700 group-hover:scale-105 lg:h-80"
+              className="h-72 w-full object-cover brightness-[0.7] saturate-[0.8] transition-all duration-700 group-hover:scale-105 group-hover:brightness-95 group-hover:saturate-100 lg:h-80"
             />
-            <span className="absolute inset-0 bg-graphite/45 transition-colors group-hover:bg-graphite/60" />
+            <span className="image-overlay absolute inset-0" />
             <span className="absolute inset-x-0 bottom-0 p-5">
               <span className="text-lg font-bold text-graphite-foreground">{a.t}</span>
+              <span className="mt-2 block h-px w-10 bg-primary transition-all duration-500 group-hover:w-20" />
             </span>
+
           </a>
         ))}
       </div>
@@ -251,7 +258,7 @@ export function Projects() {
   const go = (d: number) => setI((v) => (v + d + PROJECTS.length) % PROJECTS.length);
 
   return (
-    <section id="projects" className="border-y border-border bg-card">
+    <section id="projects" className="border-y border-border bg-graphite">
       <div className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
         <div className="grid gap-6 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-end">
           <SectionHead eyebrow="مشاريعنا" title="أعمال منفذة داخل المملكة" />
@@ -275,8 +282,9 @@ export function Projects() {
           </div>
         </div>
 
-        <div className="reveal mt-10 grid gap-0 border border-border lg:grid-cols-[1.6fr_1fr]">
-          <div className="relative overflow-hidden bg-secondary">
+        <div className="reveal mt-10 grid gap-0 border border-border bg-surface-1 shadow-lift lg:grid-cols-[1.6fr_1fr]">
+          <div className="relative overflow-hidden bg-graphite">
+
             {PROJECTS.map((pr, idx) => (
               <img
                 key={pr.name}
@@ -355,6 +363,8 @@ export function Process() {
             style={{ transitionDelay: `${i * 80}ms` }}
           >
             <span className="block text-4xl font-bold text-concrete lg:text-5xl">{s.n}</span>
+            <span className="mt-4 block h-px w-full bg-[image:var(--metal-line)]" />
+
             <h3 className="mt-5 text-lg font-bold">{s.t}</h3>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.d}</p>
           </div>
@@ -368,13 +378,14 @@ export function Process() {
 
 export function FinalCta() {
   return (
-    <section className="bg-graphite text-graphite-foreground">
+    <section className="glow-accent metal-line border-y border-border bg-surface-1 text-foreground">
       <div className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
+
         <div className="reveal max-w-3xl">
           <h2 className="text-3xl font-bold sm:text-4xl lg:text-5xl">
             مشروعك يبدأ من القياس الصحيح.
           </h2>
-          <p className="mt-5 max-w-xl text-sm leading-relaxed text-graphite-foreground/75 sm:text-lg">
+          <p className="mt-5 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-lg">
             أرسل لنا أبعاد مشروعك أو المخطط، وسنساعدك في تحديد الحل المناسب وتقديم عرض سعر.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
@@ -388,7 +399,7 @@ export function FinalCta() {
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 border border-graphite-foreground/35 px-7 py-3.5 text-sm font-semibold transition-colors hover:bg-graphite-foreground/10"
+              className="inline-flex items-center gap-2 border border-border px-7 py-3.5 text-sm font-semibold transition-colors hover:border-primary/50 hover:bg-surface-2"
             >
               <MessageCircle className="h-4 w-4" />
               تواصل عبر واتساب
@@ -403,13 +414,14 @@ export function FinalCta() {
 /* ------------------------------ CONTACT ----------------------------- */
 
 const FIELD =
-  "mt-2 w-full border border-input bg-card px-4 py-3 text-sm outline-none transition-colors focus:border-primary";
+  "mt-2 w-full border border-input bg-background/60 px-4 py-3 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground/70 focus:border-primary focus:ring-1 focus:ring-primary/40";
+
 
 export function Contact() {
   const [sent, setSent] = useState(false);
 
   return (
-    <section id="contact" className="border-t border-border bg-secondary">
+    <section id="contact" className="border-t border-border bg-background">
       <div className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.2fr]">
           <div>
@@ -419,7 +431,7 @@ export function Contact() {
               desc="أرسل تفاصيل مشروعك وسنعود إليك بعرض سعر واضح يشمل التوريد والتركيب."
             />
             <div className="reveal mt-8 space-y-3 text-sm">
-              <a href={`tel:${PHONE}`} className="flex items-center gap-3 border border-border bg-card p-4">
+              <a href={`tel:${PHONE}`} className="flex items-center gap-3 border border-border bg-surface-1 p-4 transition-colors hover:border-primary/40">
                 <Phone className="h-4 w-4 shrink-0 text-primary" />
                 <span className="font-medium">{PHONE_DISPLAY}</span>
               </a>
@@ -427,16 +439,16 @@ export function Contact() {
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 border border-border bg-card p-4"
+                className="flex items-center gap-3 border border-border bg-surface-1 p-4 transition-colors hover:border-primary/40"
               >
                 <MessageCircle className="h-4 w-4 shrink-0 text-primary" />
                 <span className="font-medium">واتساب مباشر</span>
               </a>
-              <div className="flex items-center gap-3 border border-border bg-card p-4">
+              <div className="flex items-center gap-3 border border-border bg-surface-1 p-4 transition-colors hover:border-primary/40">
                 <Mail className="h-4 w-4 shrink-0 text-primary" />
                 <span className="font-medium">{EMAIL}</span>
               </div>
-              <div className="flex items-center gap-3 border border-border bg-card p-4">
+              <div className="flex items-center gap-3 border border-border bg-surface-1 p-4 transition-colors hover:border-primary/40">
                 <MapPin className="h-4 w-4 shrink-0 text-primary" />
                 <span className="font-medium">{ADDRESS}</span>
               </div>
@@ -444,7 +456,7 @@ export function Contact() {
           </div>
 
           <form
-            className="reveal border border-border bg-card p-6 lg:p-9"
+            className="reveal border border-border bg-surface-1 p-6 shadow-lift lg:p-9"
             onSubmit={(e) => {
               e.preventDefault();
               setSent(true);
@@ -515,11 +527,11 @@ export function Contact() {
 
 export function Footer() {
   return (
-    <footer className="bg-graphite pb-16 text-graphite-foreground md:pb-0">
+    <footer className="border-t border-primary/20 bg-graphite pb-16 text-graphite-foreground md:pb-0">
       <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 lg:grid-cols-4 lg:px-8">
         <div className="lg:col-span-1">
           <div className="flex items-center gap-2.5">
-            <span className="grid h-9 w-9 place-items-center border border-graphite-foreground/25">
+            <span className="grid h-9 w-9 place-items-center border border-primary/35 bg-surface-1">
               <span className="block h-3 w-3 border-2 border-primary" />
             </span>
             <span className="leading-tight">
