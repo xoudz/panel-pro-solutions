@@ -19,15 +19,17 @@ export function Header() {
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-300",
         scrolled
-          ? "border-b border-border bg-background/90 backdrop-blur-md"
-          : "border-b border-transparent bg-background/60 backdrop-blur-sm",
+          ? "metal-line bg-graphite/85 backdrop-blur-md"
+          : "bg-background/40 backdrop-blur-sm",
       )}
     >
+
       <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 py-3.5 lg:px-8">
         <a href="#home" className="flex min-w-0 items-center gap-2.5">
-          <span className="grid h-9 w-9 shrink-0 place-items-center bg-graphite">
+          <span className="grid h-9 w-9 shrink-0 place-items-center border border-primary/40 bg-surface-2">
             <span className="block h-3 w-3 border-2 border-primary" />
           </span>
+
           <span className="min-w-0 leading-tight">
             <span className="block truncate text-base font-bold">{COMPANY}</span>
             <span className="block truncate text-[10px] tracking-[0.22em] text-muted-foreground">
