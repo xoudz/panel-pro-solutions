@@ -421,7 +421,7 @@ export function Contact() {
   const [sent, setSent] = useState(false);
 
   return (
-    <section id="contact" className="border-t border-border bg-secondary">
+    <section id="contact" className="border-t border-border bg-background">
       <div className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.2fr]">
           <div>
@@ -431,7 +431,7 @@ export function Contact() {
               desc="أرسل تفاصيل مشروعك وسنعود إليك بعرض سعر واضح يشمل التوريد والتركيب."
             />
             <div className="reveal mt-8 space-y-3 text-sm">
-              <a href={`tel:${PHONE}`} className="flex items-center gap-3 border border-border bg-card p-4">
+              <a href={`tel:${PHONE}`} className="flex items-center gap-3 border border-border bg-surface-1 p-4 transition-colors hover:border-primary/40">
                 <Phone className="h-4 w-4 shrink-0 text-primary" />
                 <span className="font-medium">{PHONE_DISPLAY}</span>
               </a>
@@ -439,16 +439,16 @@ export function Contact() {
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 border border-border bg-card p-4"
+                className="flex items-center gap-3 border border-border bg-surface-1 p-4 transition-colors hover:border-primary/40"
               >
                 <MessageCircle className="h-4 w-4 shrink-0 text-primary" />
                 <span className="font-medium">واتساب مباشر</span>
               </a>
-              <div className="flex items-center gap-3 border border-border bg-card p-4">
+              <div className="flex items-center gap-3 border border-border bg-surface-1 p-4 transition-colors hover:border-primary/40">
                 <Mail className="h-4 w-4 shrink-0 text-primary" />
                 <span className="font-medium">{EMAIL}</span>
               </div>
-              <div className="flex items-center gap-3 border border-border bg-card p-4">
+              <div className="flex items-center gap-3 border border-border bg-surface-1 p-4 transition-colors hover:border-primary/40">
                 <MapPin className="h-4 w-4 shrink-0 text-primary" />
                 <span className="font-medium">{ADDRESS}</span>
               </div>
@@ -456,7 +456,7 @@ export function Contact() {
           </div>
 
           <form
-            className="reveal border border-border bg-card p-6 lg:p-9"
+            className="reveal border border-border bg-surface-1 p-6 shadow-lift lg:p-9"
             onSubmit={(e) => {
               e.preventDefault();
               setSent(true);
