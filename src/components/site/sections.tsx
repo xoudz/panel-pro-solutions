@@ -175,16 +175,17 @@ const WHY = [
 
 export function WhyUs() {
   return (
-    <section id="about" className="border-y border-border bg-secondary">
+    <section id="about" className="border-y border-border bg-graphite">
       <div className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
         <SectionHead eyebrow="لماذا نحن" title="من التوريد إلى التسليم، جهة واحدة." />
         <div className="mt-12 grid grid-cols-2 gap-px bg-border lg:grid-cols-4">
           {WHY.map((w, i) => (
             <div
               key={w.n}
-              className="reveal bg-secondary p-6 lg:p-8"
+              className="reveal bg-graphite p-6 transition-colors duration-300 hover:bg-surface-1 lg:p-8"
               style={{ transitionDelay: `${i * 70}ms` }}
             >
+
               <span className="text-sm font-semibold text-primary">{w.n}</span>
               <h3 className="mt-4 text-lg font-bold sm:text-xl">{w.t}</h3>
               <p className="mt-1.5 text-sm text-muted-foreground">{w.v}</p>
