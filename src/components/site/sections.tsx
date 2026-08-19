@@ -258,7 +258,7 @@ export function Projects() {
   const go = (d: number) => setI((v) => (v + d + PROJECTS.length) % PROJECTS.length);
 
   return (
-    <section id="projects" className="border-y border-border bg-card">
+    <section id="projects" className="border-y border-border bg-graphite">
       <div className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
         <div className="grid gap-6 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-end">
           <SectionHead eyebrow="مشاريعنا" title="أعمال منفذة داخل المملكة" />
@@ -282,8 +282,9 @@ export function Projects() {
           </div>
         </div>
 
-        <div className="reveal mt-10 grid gap-0 border border-border lg:grid-cols-[1.6fr_1fr]">
-          <div className="relative overflow-hidden bg-secondary">
+        <div className="reveal mt-10 grid gap-0 border border-border bg-surface-1 shadow-lift lg:grid-cols-[1.6fr_1fr]">
+          <div className="relative overflow-hidden bg-graphite">
+
             {PROJECTS.map((pr, idx) => (
               <img
                 key={pr.name}
