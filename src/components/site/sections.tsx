@@ -414,7 +414,8 @@ export function FinalCta() {
 /* ------------------------------ CONTACT ----------------------------- */
 
 const FIELD =
-  "mt-2 w-full border border-input bg-card px-4 py-3 text-sm outline-none transition-colors focus:border-primary";
+  "mt-2 w-full border border-input bg-background/60 px-4 py-3 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground/70 focus:border-primary focus:ring-1 focus:ring-primary/40";
+
 
 export function Contact() {
   const [sent, setSent] = useState(false);
