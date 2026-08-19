@@ -527,7 +527,7 @@ export function Contact() {
 
 export function Footer() {
   return (
-    <footer className="metal-line bg-graphite pb-16 text-graphite-foreground md:pb-0">
+    <footer className="border-t border-primary/20 bg-graphite pb-16 text-graphite-foreground md:pb-0">
       <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 lg:grid-cols-4 lg:px-8">
         <div className="lg:col-span-1">
           <div className="flex items-center gap-2.5">
