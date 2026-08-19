@@ -5,9 +5,10 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * Design system — Modern Industrial / Premium Engineering
- * Graphite, off-white, concrete gray + a single industrial orange accent.
+ * Design system — Dark Industrial Luxury
+ * Deep charcoal surfaces, warm off-white type, copper/amber accent + metal hairlines.
  */
+
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 2px);
@@ -39,7 +40,10 @@
   --color-graphite-foreground: var(--graphite-foreground);
   --color-concrete: var(--concrete);
   --color-whatsapp: var(--whatsapp);
+  --color-surface-1: var(--surface-1);
+  --color-surface-2: var(--surface-2);
 }
+
 
 :root {
   --radius: 0.25rem;
