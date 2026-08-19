@@ -217,7 +217,7 @@ export function Applications() {
           <a
             key={a.t}
             href="#contact"
-            className="reveal group relative block overflow-hidden"
+            className="reveal group relative block overflow-hidden border border-border transition-colors duration-300 hover:border-primary/45"
             style={{ transitionDelay: `${(i % 3) * 70}ms` }}
           >
             <img
@@ -226,12 +226,14 @@ export function Applications() {
               loading="lazy"
               width={1000}
               height={1200}
-              className="h-72 w-full object-cover transition-transform duration-700 group-hover:scale-105 lg:h-80"
+              className="h-72 w-full object-cover brightness-[0.7] saturate-[0.8] transition-all duration-700 group-hover:scale-105 group-hover:brightness-95 group-hover:saturate-100 lg:h-80"
             />
-            <span className="absolute inset-0 bg-graphite/45 transition-colors group-hover:bg-graphite/60" />
+            <span className="image-overlay absolute inset-0" />
             <span className="absolute inset-x-0 bottom-0 p-5">
               <span className="text-lg font-bold text-graphite-foreground">{a.t}</span>
+              <span className="mt-2 block h-px w-10 bg-primary transition-all duration-500 group-hover:w-20" />
             </span>
+
           </a>
         ))}
       </div>
