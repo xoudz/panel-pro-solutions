@@ -363,6 +363,8 @@ export function Process() {
             style={{ transitionDelay: `${i * 80}ms` }}
           >
             <span className="block text-4xl font-bold text-concrete lg:text-5xl">{s.n}</span>
+            <span className="mt-4 block h-px w-full bg-[image:var(--metal-line)]" />
+
             <h3 className="mt-5 text-lg font-bold">{s.t}</h3>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.d}</p>
           </div>
@@ -376,13 +378,14 @@ export function Process() {
 
 export function FinalCta() {
   return (
-    <section className="bg-graphite text-graphite-foreground">
+    <section className="glow-accent metal-line border-y border-border bg-surface-1 text-foreground">
       <div className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
+
         <div className="reveal max-w-3xl">
           <h2 className="text-3xl font-bold sm:text-4xl lg:text-5xl">
             مشروعك يبدأ من القياس الصحيح.
           </h2>
-          <p className="mt-5 max-w-xl text-sm leading-relaxed text-graphite-foreground/75 sm:text-lg">
+          <p className="mt-5 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-lg">
             أرسل لنا أبعاد مشروعك أو المخطط، وسنساعدك في تحديد الحل المناسب وتقديم عرض سعر.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
@@ -396,7 +399,7 @@ export function FinalCta() {
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 border border-graphite-foreground/35 px-7 py-3.5 text-sm font-semibold transition-colors hover:bg-graphite-foreground/10"
+              className="inline-flex items-center gap-2 border border-border px-7 py-3.5 text-sm font-semibold transition-colors hover:border-primary/50 hover:bg-surface-2"
             >
               <MessageCircle className="h-4 w-4" />
               تواصل عبر واتساب
