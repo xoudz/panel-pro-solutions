@@ -5,6 +5,7 @@ import {
   Hero,
   Services,
   WhyUs,
+  Specs,
   Applications,
   Projects,
   Process,
@@ -47,6 +48,9 @@ function Index() {
         </div>
         <div data-reveal>
           <WhyUs />
+        </div>
+        <div data-reveal>
+          <Specs />
         </div>
         <div data-reveal>
           <Applications />
