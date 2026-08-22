@@ -103,7 +103,7 @@ const SERVICES = [
   {
     title: "توريد Sandwich Panels",
     img: supplyImg,
-    desc: "ألواح بسماكات وأنواع عزل متعددة (PU / PIR / Rockwool) بمواصفات مطابقة ومصادر موثوقة.",
+    desc: "ألواح سقف بقلب PIR بسماكة 50 مم + ضلع 30 مم، وجهين PPGI بسماكة 0.50 مم، وكثافة قلب 40–42 كجم/م³.",
   },
   {
     title: "التركيب والتنفيذ",
@@ -167,11 +167,76 @@ export function Services() {
 /* ------------------------------ WHY US ------------------------------ */
 
 const WHY = [
-  { n: "01", t: "جودة المواد", v: "مواصفات موثقة" },
-  { n: "02", t: "دقة التنفيذ", v: "قياس ميداني" },
-  { n: "03", t: "سرعة الإنجاز", v: "جدول زمني ملتزم" },
-  { n: "04", t: "حل متكامل", v: "جهة واحدة" },
+  { n: "01", t: "جودة المواد", v: "قلب PIR كثافة 40–42 كجم/م³" },
+  { n: "02", t: "أداء حريق موثق", v: "ASTM E84 — Class A" },
+  { n: "03", t: "اختبار معتمد", v: "UKAS 4439 / GAC ATL-0017" },
+  { n: "04", t: "حل متكامل", v: "توريد وتركيب من جهة واحدة" },
 ];
+
+/* ------------------------------ SPECS ------------------------------ */
+
+const SPEC_ROWS = [
+  { k: "المنتج", v: "لوح سقف ساندويتش بانل — قلب 50 مم + ضلع 30 مم" },
+  { k: "نوع القلب العازل", v: "رغوة بولي إيزوسيانوريت (PIR)" },
+  { k: "كثافة القلب", v: "40–42 كجم/م³" },
+  { k: "وزن القلب للمتر", v: "2.325 كجم/م²" },
+  { k: "الوجهان", v: "صاج PPGI مجلفن، سماكة 0.50 مم لكل وجه" },
+  { k: "الطلاء", v: "طبقة نهائية بوليستر 15 ميكرون + برايمر 5 ميكرون" },
+  { k: "وزن اللوح الإجمالي", v: "11.265 كجم/م²" },
+  { k: "السماكة الكلية", v: "80 مم (50 قلب + 30 ضلع)" },
+];
+
+const FIRE_ROWS = [
+  { k: "معيار الاختبار", v: "ASTM E84-21" },
+  { k: "مؤشر انتشار اللهب (FSI)", v: "0" },
+  { k: "مؤشر كثافة الدخان (SDI)", v: "10" },
+  { k: "التصنيف", v: "Class A" },
+  { k: "أعلى حرارة مسجلة", v: "303°م / 577°ف" },
+  { k: "التقطير أو اللهب المتبقي", v: "لا يوجد" },
+  { k: "جهة الاختبار", v: "Thomas Bell-Wright International Consultants" },
+  { k: "رقم التقرير", v: "VD043 — بتاريخ 1 يونيو 2021" },
+];
+
+export function Specs() {
+  return (
+    <section id="specs" className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
+      <SectionHead
+        eyebrow="المواصفات"
+        title="مواصفات فنية موثقة باختبار معتمد"
+      />
+      <div className="mt-12 grid gap-6 lg:grid-cols-2">
+        {[
+          { title: "مواصفات اللوح", rows: SPEC_ROWS },
+          { title: "أداء مقاومة الحريق", rows: FIRE_ROWS },
+        ].map((block, bi) => (
+          <div
+            key={block.title}
+            className="reveal metal-card p-6 lg:p-8"
+            style={{ transitionDelay: `${bi * 80}ms` }}
+          >
+            <h3 className="text-xl font-bold">{block.title}</h3>
+            <dl className="mt-6 divide-y divide-border">
+              {block.rows.map((r) => (
+                <div
+                  key={r.k}
+                  className="flex flex-wrap items-baseline justify-between gap-2 py-3"
+                >
+                  <dt className="text-sm text-muted-foreground">{r.k}</dt>
+                  <dd className="text-sm font-semibold">{r.v}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        ))}
+      </div>
+      <p className="mt-6 text-xs leading-relaxed text-muted-foreground">
+        المواصفات مستندة إلى تقرير اختبار مقاومة الحريق رقم VD043 الصادر عن
+        Thomas Bell-Wright International Consultants وفق ASTM E84-21. النتائج
+        صالحة للتكوين المختبر فقط.
+      </p>
+    </section>
+  );
+}
 
 export function WhyUs() {
   return (
