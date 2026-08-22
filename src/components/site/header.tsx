@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { COMPANY, COMPANY_EN, NAV_LINKS } from "@/lib/site";
 import { cn } from "@/lib/utils";
+import { ThemeToggle } from "@/components/site/theme-toggle";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -50,6 +51,7 @@ export function Header() {
               </a>
             ))}
           </nav>
+          <ThemeToggle className="me-1" />
           <a
             href="#contact"
             className="hidden shrink-0 bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90 sm:inline-flex"
